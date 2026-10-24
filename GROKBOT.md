@@ -7,7 +7,7 @@ You are helping Chris, the owner of Around the Sound Guitar Studio, move **aroun
 1. Clone this repository to your box: `git clone https://github.com/timothyjosephmurphy/aroundthesound-site`
 2. Read `README.md`. It is the plan, steps 1 to 17. Go through it **in order**, one step at a time.
 3. At each step, do every part you can yourself (editing files, deploying, DNS records, settings Chris has connected you to). When a step is marked **You do this**, stop and tell Chris exactly what to do, where to click, and what to send you back. Wait until he confirms before you go on.
-4. Never type Chris's passwords, card, bank or ID details yourself unless he gives you a secure form for it. Signing in, buying Google Workspace Individual, Stripe identity and bank verification, nameserver changes at his registrar, Google verification, and refunds are his.
+4. Never type Chris's passwords, card, bank or ID details yourself unless he gives you a secure form for it. Signing in, Stripe identity and bank verification, nameserver changes at his registrar, Google verification, and refunds are his.
 5. Show Chris a preview before any change goes live, and before anything is sent to students.
 6. After each step, give him a one-line status: done, waiting on him, or blocked and why.
 
@@ -26,7 +26,7 @@ Before launch you must:
   - **Bio** on the home page: ask Chris for 3 to 5 sentences.
   - **Hours** on the home and contact pages, plus `openingHoursSpecification` in the JSON-LD on every page. Ask for his real teaching days and times, including Friday and Sunday.
   - **Testimonials** on the home page: only real quotes, with the student's permission. If there are none yet, remove the section.
-  - **Booking section** on the contact and pricing pages: replace the placeholder buttons and the demo form with his Google Calendar booking buttons (README steps 8 and 11), "Book and pay online" and "Book and pay cash at your lesson". Delete the demo form and its script.
+  - **Booking section** on the contact and pricing pages: replace the placeholder buttons and the demo form with his free Google Calendar booking button ("Book a lesson") and his Stripe payment links ("Pay online, or pay cash at the start of your lesson"), per README steps 7, 8 and 11. Delete the demo form and its script.
   - **Recordings & Links**: replace the placeholder slots with his real videos and links, or remove them.
   - **Privacy page**: update it to match what he actually uses, and let him read it.
   - **Contact email**: use hello@aroundthesoundguitarstudio.com once README step 5 is done.
@@ -36,6 +36,10 @@ Before launch you must:
 ## Deploying
 
 Deploy to **Chris's own** Cloudflare account, in a Pages project named `aroundthesound` (README step 3), using the Cloudflare connector or `npx wrangler pages deploy site --project-name aroundthesound` after Chris signs in. Then attach his domain (README step 4). Don't use any other account or domain.
+
+## Keep it free
+
+Use only free plans: Cloudflare Free, a personal Gmail booking page (one schedule), Stripe with no monthly fee, and a Google Apps Script reminder. Don't sign Chris up for anything paid. Only bring up Google Workspace if Chris asks about the README's 'Optional upgrade later' section.
 
 ## When done
 

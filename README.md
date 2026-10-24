@@ -46,79 +46,63 @@ That repository has your new site, already built from your Canva logo, graphics,
 
 **You do this:** click the confirmation emails from Cloudflare and Gmail.
 
-# 6. Google Workspace Individual (for paid bookings)
-
-Google Calendar's booking page is the scheduler. A plain Gmail account gets one free booking page, with no payments and no reminders. Google Workspace Individual on your existing Gmail adds:
-
-- paid bookings through Stripe
-- more than one booking schedule
-- email reminders
-- email verification for people who book
-
-It costs **$9.99 a month, or $99.99 a year**, after a 14-day free trial ([Google Workspace Individual](https://workspace.google.com/individual/)). Google One Premium does not include payments.
-
-**You do this:** sign in to your Gmail at workspace.google.com/individual, start the plan and enter your card.
-
-> "Grok Bot, confirm Workspace Individual is active on my Gmail and that Calendar shows 'Appointment schedules' with payment options."
-
-# 7. Stripe account
+# 6. Stripe account (free; Stripe takes a small fee per payment)
 
 **You do this:** sign up at stripe.com. Verify your identity (legal name, SSN or EIN), add your bank account for payouts, and switch to live mode.
 
 > "Grok Bot, in Stripe set my public business name to Around the Sound Guitar Studio, the statement descriptor to AROUND THE SOUND, add my logo, and turn on email receipts."
 
-**You do this:** in Google Calendar, go to Settings, then General, then Appointment schedules, then Connect Stripe, and sign in to Stripe to approve.
+# 7. Payment links
 
-# 8. Booking schedules
+Prices: one lesson is $75 Mon-Thu or $90 Saturday. 10 lessons are $600 (Mon-Thu) or $720 (Saturday). Add-ons: GoPro recording $20, practice video $35, song breakdown $75, gear consultation $100 an hour.
 
-You'll have three. Your cancellation text goes on all three:
+> "Grok Bot, in Stripe create payment links for: Lesson Mon-Thu $75, Lesson Saturday $90, 10-Lesson Package Mon-Thu $600, 10-Lesson Package Saturday $720, Lesson Recording on GoPro $20, Personalized Practice Video $35, Song Breakdown $75, and Guitar Buying/Setup Consultation $100. Give me the list of links."
 
-*"Please provide at least 24 hours' notice if you need to cancel or reschedule. Cancellations with less than 24 hours' notice will be charged the full lesson fee."*
+# 8. Your free booking page
 
-> "Grok Bot, in my Google Calendar create these appointment schedules. Make each one 60 minutes with a 15-minute buffer, at least 24 hours' notice to book, location 'Home studio in West Seattle (address sent after booking)' or Google Meet, and the booking question 'What's a song you'd love to learn?'
+You'll use one free Google Calendar booking page on your Gmail. It takes unlimited bookings, and Google sends each student a confirmation and a calendar invite.
+
+> "Grok Bot, in my Google Calendar create one appointment schedule called 'Guitar or Bass Lesson'. Make it 60 minutes with a 15-minute buffer, require at least 24 hours' notice to book, and use my real teaching hours. Set the location to 'Home studio in West Seattle (address sent after booking)' or Google Meet. Add the booking question 'What's a song you'd love to learn?' Put this in the description, with my real Stripe links:
 >
-> 1. 'Guitar or Bass Lesson, pay online (Mon-Thu)': Monday to Thursday hours only. Under 'Payments & cancellation policy', check 'Require payment when booking', set $75, and add my cancellation text.
-> 2. 'Guitar or Bass Lesson, pay online (Saturday)': Saturday hours only, $90, same settings.
-> 3. 'Lesson, pay cash at lesson': all my teaching days, no payment. In the description, put: 'Cash is due at the start of the lesson ($75 Mon-Thu, $90 Saturday). 10-lesson package holders, book here too.' Add my cancellation text.
+> 'Lessons: $75 Mon-Thu, $90 Saturday. 10-lesson packages: $600 (Mon-Thu) or $720 (Saturday). Pay online: [Mon-Thu lesson link] | [Saturday lesson link] | [10-pack links], or pay cash at the start of your lesson. Package holders just book; no payment needed. Please provide at least 24 hours' notice if you need to cancel or reschedule. Cancellations with less than 24 hours' notice will be charged the full lesson fee.'
 >
-> Turn on email verification for bookers on all three. Show me each booking page before saving."
+> Show me the booking page before saving."
 
-Students can pay online by card, Apple Pay or Google Pay. Google takes no extra fee beyond Stripe's, and refunds aren't automatic. **You do this:** issue any refunds from the Stripe dashboard.
+**You do this:** check the hours, prices and links on the booking page.
 
-Docs: [Create a booking page](https://support.google.com/calendar/answer/11608416), [Payments for appointments](https://support.google.com/calendar/answer/16287038), [Booking page options and limits](https://support.google.com/calendar/answer/13762729).
+# 9. Payment and package sheet
 
-# 9. Packages and extras
+> "Grok Bot, make a Google Sheet with three tabs. Bookings: date, student, paid by card or cash, amount. Packages: student, lessons bought, used and left. Cash log: date, student, item, amount, plus a monthly total. Each week, match my Google Calendar lessons against my Stripe payments and this sheet, and tell me who hasn't paid yet."
 
-Prices: 10 lessons for $600 (Mon-Thu) or $720 (Saturday). Add-ons: GoPro recording $20, practice video $35, song breakdown $75, gear consultation $100 an hour.
+**You do this:** add each cash payment to the sheet the same day, and issue any refunds from the Stripe dashboard.
 
-> "Grok Bot, in Stripe create payment links for: 10-Lesson Package Mon-Thu $600, 10-Lesson Package Saturday $720, Lesson Recording on GoPro $20, Personalized Practice Video $35, Song Breakdown $75, and Guitar Buying/Setup Consultation $100. Set each package link's confirmation message to: 'Thanks! Book your lessons with the pay-at-lesson link I'll email you.' Add the links to my Pricing page, and note that packages and extras can also be paid in cash."
+# 10. Reminders (free)
 
-> "Grok Bot, make a Google Sheet that tracks each package student (lessons bought, used and left, and whether they paid by card or cash). Update it whenever I tell you a lesson happened."
+The free booking page doesn't send reminders. Students' calendar invites still notify them, and you can add a free email reminder too:
 
-Package holders book on the pay-at-lesson schedule.
+> "Grok Bot, add a free Google Apps Script to my payment sheet that runs every evening. It should find tomorrow's 'Guitar or Bass Lesson' bookings in my calendar and email each student from my Gmail: lesson time, location or Meet link, how to pay, and the 24-hour policy. Show me the email text and a test send to me first."
 
-# 10. Reminders
+**You do this:** approve the script's Google permissions when asked.
 
-> "Grok Bot, turn on email reminders for all three booking schedules, 24 hours before each lesson, and include the cancellation policy."
+# 11. Book button on your site
 
-# 11. Book buttons on your site
+> "Grok Bot, get the booking button code for my 'Guitar or Bass Lesson' page. Put it on the Contact page and behind every 'Book a lesson' link, and load it only when someone clicks. Next to it, add 'Pay online' with my Stripe links and 'or pay cash at the start of your lesson'. Put the package and add-on links on the Pricing page. Update my privacy page to mention Google Calendar and Stripe, then deploy."
 
-> "Grok Bot, get the booking button and inline embed code for my three Google Calendar booking schedules. Put a 'Book and pay online' button (Mon-Thu and Saturday) and a 'Book and pay cash at your lesson' button on the Contact page and on every 'Book a lesson' link. Load the embed only when someone clicks. Update my privacy page to mention Google Calendar and Stripe, then deploy."
+# 12. Test it
 
-# 12. Test each booking
+**You do this:** using a second email address, book a lesson. Check that:
 
-**You do this:** using a second email address, book one lesson on each of the three schedules. Pay the online ones with a real card. Check each of these:
+- the confirmation and calendar invite arrive
+- the lesson shows up in your calendar
+- the reminder email arrives the evening before
 
-- the confirmation email arrives
-- the event shows up in your calendar
-- the reminder arrives
-- the cancellation policy is shown
+Then pay one Stripe link with a real card, refund it in Stripe, and cancel the test lesson.
 
-Then refund your card payments in Stripe and cancel the test lessons.
+Docs: [Create a booking page](https://support.google.com/calendar/answer/11608416), [Booking page options and limits](https://support.google.com/calendar/answer/13762729).
 
 # 13. Cash
 
-> "Grok Bot, make a simple cash receipt template I can text or email (date, student, what it's for, amount, 'Paid in cash'). Add a 'Cash log' tab to my package sheet with date, student, item and amount, and add a monthly total."
+> "Grok Bot, make a simple cash receipt template I can text or email: date, student, what it's for, amount, 'Paid in cash'."
 
 **You do this:**
 
@@ -157,17 +141,26 @@ Wait until the new site, bookings and email have worked for about two weeks.
 
 **You do this:** unpublish the Canva site. If the domain is still registered through Canva, either keep it there (it renews Sept 26, 2027) or transfer it to Cloudflare before you cancel any Canva plan.
 
+# What it costs
+
+Everything above is free except Stripe's per-payment fee. That covers Cloudflare Pages, email routing and Web Analytics; Google Calendar's booking page; Google Business Profile; Search Console; and Stripe (no monthly fee). Your only fixed cost is renewing the domain each year (next renewal Sept 26, 2027).
+
+# Optional upgrade later
+
+Google Workspace Individual, about $9.99 a month (US price, not verified), adds these to your booking page: payment required at booking, separate weekday and Saturday pages, automatic reminders, and email verification for bookers. [Payments for appointments](https://support.google.com/calendar/answer/16287038)
+
 # Checklist: only you can do these
 
 - [ ] Cloudflare signup and two-factor sign-in (1)
 - [ ] Bio and hours (2); check the site on your phone (3)
 - [ ] Change the domain's nameservers (4)
 - [ ] Email confirmations (5)
-- [ ] Buy Google Workspace Individual (6)
-- [ ] Stripe identity check, bank details and live mode; connect Stripe in Calendar (7)
-- [ ] Issue refunds in Stripe (8)
-- [ ] Test bookings and refund them (12)
-- [ ] Log cash and give receipts (13)
+- [ ] Stripe identity check, bank details and live mode (6)
+- [ ] Check the booking page (8)
+- [ ] Log cash the same day; issue refunds in Stripe (9)
+- [ ] Approve the reminder script (10)
+- [ ] Test booking and refund (12)
+- [ ] Give cash receipts when asked (13)
 - [ ] Google Business Profile verification (14); Search Console sign-in (15)
 - [ ] Review requests, privacy page check, directory verification (16)
 - [ ] Unpublish Canva (17)
